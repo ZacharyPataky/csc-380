@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=chrome">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Page</title>
+
+    <style>
+        body {
+            margin-left: 100px;
+            margin-top: 100px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+        }
+    </style>
+
+    <script>
+        function postMessage() {
+            $.get("get_message.php", function(data, status) {
+                $("textarea").val() = data;
+            });
+            // $("textarea").val()
+        };
+        /*
+        function postMessage() {
+            // $("textarea").val("banana");
+            let field = document.querySelector("textarea");
+            field.value = "banana";
+        }
+        */
+    </script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+    <form action="put_message.php" method="post">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Type something here" rows="5" cols="20"></textarea>
+        <br>
+        <button>PUT</button>
+    </form>
+
+    <button onclick="postMessage()">GET</button>
+</body>
+
+</html>

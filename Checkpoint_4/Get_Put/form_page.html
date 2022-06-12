@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=chrome">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Page</title>
+
+    <style>
+        body {
+            margin-left: 100px;
+            margin-top: 100px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+        }
+    </style>
+
+    <script>
+        function postMessage() {
+            $.get("get_message.php", function(data) {
+                $("#message").val(data);
+            });
+        }
+    </script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+    <form action="put_message.php" method="post">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Type something here" rows="5" cols="20"></textarea>
+        <br>
+        <button>PUT</button>
+    </form>
+
+    <button id="getBut" onclick="postMessage()">GET</button>
+
+    <!-- |----------------------------------------------------------------------|
+
+    This script wouldn't work as expected because I used a button that would
+    call it via [onclick].  This meant that the first click would call the
+    function.  That's not enough.  A second click was necessary to continue
+    execution inside of [getFunct], meaning that two clicks were necessary to
+    obtain the expected output.  Interesting since the program will wait
+    (indefinitely?) for the second click.  
+
+    <script>
+        function getFunct() {
+            $("#getBut").click(function() {
+                $.get("get_message.php", function(data) {
+                    $("#message").val(data);
+                });
+            });
+        };
+    </script>
+    |-----------------------------------------------------------------------| -->
+</body>
+
+</html>

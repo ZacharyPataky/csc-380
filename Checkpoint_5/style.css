@@ -1,0 +1,402 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* |-------------------------------------------------------------------------------------| */
+/* |-------------------------------------------------------------------------------------| */
+/* |-------------------------------------------------------------------------------------| */
+
+/* General |-----------------------------------------------------------------------------| */
+
+* {
+    box-sizing: border-box;  /* Accounts for border/padding when specifying height/width */
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;  /* Makes scrolling smooth from the Navigation Bar */
+}
+
+.headings {
+    font-family: "Playfair Display", sans-serif;
+    font-size: 3rem;
+    margin: 40px 0px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.headings span {
+    font-size: 1.5rem;
+}
+
+.row {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+.box {
+    /*background: linear-gradient(to top, #606c38 50%, white 50%);*/
+    background-size: 100% 200%;
+    border: 1px solid #000;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    margin: 10px;
+    padding: 10px;
+    transition: all .8s;
+    width: 450px;
+}
+
+.box:hover {
+    background-position: left bottom;
+    border: none;
+    background-color: #606c38;
+    box-shadow: 0 0 20px #606c38;
+    color: #FFF;
+}
+
+.box .headings {
+    font-size: 1.6em;
+    margin: 20px;
+    margin-bottom: 25px;;
+}
+
+.box .list-box {
+    height: 320px;
+    margin-top: 10px;
+    text-align: center;
+    width: 428px;
+}
+
+.box .list-box .list {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+    height: 295px;
+    line-height: 1em;
+}
+
+.box .list-box .list li {
+    /*flex: 1;*/
+    line-height: 2em;
+}
+
+/* Navigation Bar |----------------------------------------------------------------------| */
+
+.nav-bar {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);  /* Half-transparent BLACK - Looks funky at the page's top*/
+    display: flex;
+    justify-content: center;  /* Centers content in flexbox */
+    position: sticky;  /* Positioned in a "fixed" relative to <body> */
+    top: 0;  /* Top border touches top of <body> */
+    z-index: 9999;  /* Top layer; therefore, can always be toggled */
+}
+
+.nav-bar ul {
+    display: flex;
+    margin: 20px 0px;
+}
+
+.nav-bar ul li {
+    font-family: "Playfair Display", sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.nav-bar ul #sep {
+    color: #FFF;
+    padding: 0 13px;
+}
+
+.nav-bar ul li a {
+    color: #FFF;
+    padding: 8px 25px;
+    text-decoration: none;  /* Removes gross underline */
+    transition: all .5s ease;  /* Makes the :hover animation ease in for 5 seconds on all anchors */
+}
+
+.nav-bar ul li a:hover {
+    background-color: #FFF;
+    color: #000;
+    box-shadow: 0 0 10px #FFF;  /* Creates a white shadow around the Navigation Button */
+}
+
+/* Welcome |-----------------------------------------------------------------------------| */
+
+#welcome {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);  /* Half-transparent BLACK - "Film" over image*/
+    color: #FFF;
+    display: flex;
+    flex-direction: column;  /* Align elements in a column - preparatory for Responsive */
+    height: 840px;
+    justify-content: center;  /* Centers content in flexbox */
+}
+
+#welcome::before {
+    background: url('Images\\motherboard.jpg') no-repeat center center/cover;  /* Creates an image behind #welcome */
+    content: "";  /* Provide no text in the top-left corner */
+    height: 900px;
+    position: absolute;  /* Positioned relative to <body> */
+    opacity: 0.8;  /* Not opaque */
+    right: 0;  /* Stay within box bounds */
+    top: 0;  /* Stay within box bounds */
+    width: 100%;
+    z-index: -1;  /* Keep behind everything */
+}
+
+/* Text layered over the background image */
+.main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 30%;  /* Be 30% "down" the #welcome box */
+}
+
+/* About Me |----------------------------------------------------------------------------| */
+
+#about {
+    box-sizing: border-box;  /* Accounts for border/padding when specifying height/width */
+    display: flex;
+    flex-direction: column;  /* Align elements in a column - preparatory for Responsive */
+    margin-bottom: 50px;
+    padding: 20px;
+}
+
+#image-text {
+    display: flex;
+    padding: 0 100px;
+}
+
+#image-text img {
+    border-radius: 20px;  /* Rounds image edges */
+    height: 400px;
+    width: 400px;
+}
+
+#intro {
+    display: flex;
+    flex-direction: column;  /* Align elements in a column - preparatory for Responsive */
+    text-align: justify;  /* Stretches lines so they have equal width */
+    padding: 10px;
+}
+
+#intro p {
+    font-size: 1.4rem;
+    line-height: 2;
+}
+
+#intro #links {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+#intro #links li {
+    box-sizing: border-box;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+#intro #links li a {
+    background-color: #FFF;
+    border: 1px solid #000;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #000;
+    font-size: 1.4em;
+    font-weight: 700;
+    padding: 15px;
+    text-decoration: none;
+    transition: all .8s;
+}
+
+#intro #links li a:hover {
+    background-color: #606c38;
+    border: none;
+    box-shadow: 0 0 20px #606c38;
+    color: #FFF;
+}
+
+/* Photo Bar |---------------------------------------------------------------------------| */
+
+#photo-bar {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;  /* Align elements in a column - preparatory for Responsive */
+    padding: 20px;
+}
+
+.gallery {
+    box-sizing: border-box;  /* Accounts for border/padding when specifying height/width */
+    display: flex;
+    flex-wrap: wrap;  /* Wrap elements in the flexbox */
+    justify-content: space-around;  /* Equal space between items, with half-space on ends */
+}
+
+.gallery img {
+    border-radius: 20px;
+    height: 360px;
+    margin: 10px;
+    width: 360px;
+}
+
+/* Hobbies |-----------------------------------------------------------------------------| */
+
+/* Skills |------------------------------------------------------------------------------| */
+
+#skills {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* Quote Bar |---------------------------------------------------------------------------| */
+
+#quote-bar {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.quotes {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.quote-box {
+    color: #FFF;
+    font-size: 1.5em;
+    font-style: italic;
+    text-align: center;
+    width: 360px;
+}
+
+.quote-box p:first-child {
+    padding-bottom: 10px;
+}
+
+/* Education |---------------------------------------------------------------------------| */
+
+/* Work Experience |---------------------------------------------------------------------| */
+
+/* References |--------------------------------------------------------------------------| */
+
+/* Contact Me |--------------------------------------------------------------------------| */
+
+#contact {
+    background-color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;  /* Accounts for border/padding when specifying height/width */
+    color: white;
+    display: flex;
+    flex-direction: column;  /* Align elements in a column - preparatory for Responsive */
+    padding: 20px;
+}
+
+.form {
+    align-items: center;  /* Position items in the center of the box */
+    box-sizing: border-box;  /* Accounts for border/padding when specifying height/width */
+    display: flex;
+    flex-direction: column;  /* Align elements in a column - preparatory for Responsive */
+    margin: 20px 0px;
+}
+
+.input {
+    border: none;
+    font-family: "Roboto Serif", sans-serif;
+    margin: 15px;
+    outline: none;  /* Ensure no outline */
+    padding: 12px;
+    width: 30%;
+}
+
+#msg {
+    border: none;
+    font-family: "Roboto Serif", sans-serif;
+    margin: 15px;
+    outline: none;  /* Ensure no outline */
+    padding: 10px;
+    resize: none;
+    width: 40%;
+}
+
+#submit {
+    background-color: transparent;
+    border: 1px solid #FFF;
+    color: #FFF;
+    margin-top: 15px;
+    outline: none;  /* Ensure no outline */
+    padding: 10px 35px;
+    transition: .6s ease;  /* Ease below transition for .6s */
+}
+
+#submit:hover {
+    background-color: #FFF;
+    box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF;  /* Creates three white shadows around the SUBMIT Button */
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Play Game |---------------------------------------------------------------------------| */
+
+/* Software Engineering |----------------------------------------------------------------| */
+
+/* McDouble Productions |----------------------------------------------------------------| */
+
+/* Concent |-----------------------------------------------------------------------------| */

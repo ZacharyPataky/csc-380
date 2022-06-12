@@ -1,0 +1,639 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* |-------------------------------------------------------------------------------------| */
+/* |-------------------------------------------------------------------------------------| */
+/* |-------------------------------------------------------------------------------------| */
+
+/* General |-----------------------------------------------------------------------------| */
+
+* {
+    box-sizing: border-box;  /* Accounts for border/padding when specifying height/width */
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;  /* Makes scrolling smooth from the Navigation Bar */
+}
+
+.headings {
+    font-family: "Playfair Display", sans-serif;
+    font-size: 3rem;
+    margin: 40px 0px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.headings span {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 700px) {
+    .headings {
+        font-size: 2.5rem;
+    }
+
+    .headings span {
+        font-size: 1rem;
+    }
+}
+
+.row {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
+.box {
+    background-size: 100% 200%;
+    border: 1px solid #000;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    margin: 10px;
+    padding: 10px;
+    transition: all .8s;
+    width: 400px;
+}
+
+.box:hover {
+    background-position: left bottom;
+    border: none;
+    background-color: #606c38;
+    box-shadow: 0 0 20px #606c38;
+    color: #FFF;
+}
+
+.box .headings {
+    font-size: 1.6em;
+    margin: 20px;
+    margin-bottom: 25px;;
+}
+
+.box .list-box {
+    height: 100%;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.box .list-box .list {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+    height: 295px;
+    /* line-height: 1em; */
+}
+
+.box .list-box .list li {
+    /*flex: 1;*/
+    line-height: 2em;
+}
+
+@media (max-width: 700px) {
+    .box .headings {
+        font-size: 1.2em;
+        margin-left: 10px;
+        margin-right: 10px;       
+    }
+
+    .box .list-box .list {
+        font-size: 1.5em;
+    }
+}
+
+/* Navigation Bar |----------------------------------------------------------------------| */
+
+.nav-bar {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);  /* Half-transparent BLACK - Looks funky at the page's top*/
+    display: flex;
+    justify-content: center;  /* Centers content in flexbox */
+    position: sticky;  /* Positioned in a "fixed" relative to <body> */
+    top: 0;  /* Top border touches top of <body> */
+    z-index: 9999;  /* Top layer; therefore, can always be toggled */
+}
+
+.nav-bar .nav-bar-links ul {
+    display: flex;
+    margin: 20px 0px;
+}
+
+.nav-bar .nav-bar-links ul li {
+    font-family: "Playfair Display", sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.nav-bar .nav-bar-links ul #sep {
+    color: #FFF;
+    padding: 0 13px;
+}
+
+.nav-bar .nav-bar-links ul li a {
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    padding: 8px 25px;
+    text-align: center;
+    text-decoration: none;  /* Removes gross underline */
+    transition: all .5s ease;  /* Makes the :hover animation ease in for 5 seconds on all anchors */
+}
+
+.nav-bar .nav-bar-links ul li a:hover {
+    background-color: #FFF;
+    color: #000;
+    box-shadow: 0 0 10px #FFF;  /* Creates a white shadow around the Navigation Button */
+}
+
+.toggle-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;;
+    display: none;
+    flex-direction: column;
+    height: 30px;
+    justify-content: space-between;
+    padding: 5px;
+    position: absolute;
+    right: 1rem;
+    top: 20px;
+    width: 40px;
+}
+
+.toggle-button .bar {
+    background-color: #FFF;
+    border-radius: 10px;
+    height: 3px;
+    width: 100%;
+}
+
+@media (max-width: 960px) {
+    .toggle-button {
+        display: flex;
+    }
+
+    .nav-bar-links {
+        display: none;
+        width: 100%;
+    }
+
+    .nav-bar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .nav-bar-links ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-bar-links li {
+        text-align: center;
+    }
+
+    .nav-bar-links ul li a {
+        padding: .5rem 1rem;
+    }
+
+    .nav-bar-links.active {
+        display: flex;
+        justify-content: space-evenly;
+        margin: 60% 0;
+    }
+}
+
+/* Welcome |-----------------------------------------------------------------------------| */
+
+#welcome {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);  /* Half-transparent BLACK - "Film" over image*/
+    color: #FFF;
+    display: flex;
+    flex-direction: column;  /* Align elements in a column - preparatory for Responsive */
+    height: 840px;
+    justify-content: center;  /* Centers content in flexbox */
+}
+
+#welcome::before {
+    background: url('Images\\motherboard.jpg') no-repeat center center/cover;  /* Creates an image behind #welcome */
+    content: "";  /* Provide no text in the top-left corner */
+    height: 915px;
+    position: absolute;  /* Positioned relative to <body> */
+    opacity: 0.8;  /* Not opaque */
+    right: 0;  /* Stay within box bounds */
+    top: 0;  /* Stay within box bounds */
+    width: 100%;
+    z-index: -1;  /* Keep behind everything */
+}
+
+@media (max-width: 700px) {
+    #welcome::before {
+        height: 840px;       
+    }
+}
+
+/* Text layered over the background image */
+.main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 30%;  /* Be 30% "down" the #welcome box */
+}
+
+/* About Me |----------------------------------------------------------------------------| */
+
+#about {
+    box-sizing: border-box;  /* Accounts for border/padding when specifying height/width */
+    display: flex;
+    flex-direction: column;  /* Align elements in a column - preparatory for Responsive */
+    margin-bottom: 50px;
+    padding: 30px;
+}
+
+#image-text {
+    display: flex;
+    padding: 0 100px;
+}
+
+#image-text img {
+    border-radius: 20px;  /* Rounds image edges */
+    height: 400px;
+    width: 400px;
+}
+
+#intro {
+    display: flex;
+    flex-direction: column;  /* Align elements in a column - preparatory for Responsive */
+    text-align: justify;  /* Stretches lines so they have equal width */
+    margin-left: 10px;
+    padding: 20px;
+}
+
+#intro p {
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+#intro p span {
+    font-weight: 700;
+}
+
+@media (max-width: 700px) {
+    #about {
+        margin-bottom: 20px;
+        padding-left: 20px;
+    }
+
+    #image-text {
+        flex-wrap: wrap;
+        padding: 0 0;
+    }
+
+    #intro {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    #image-text img {
+        height: 300px;
+        margin: 10px;
+        margin-bottom: 0;
+        width: 300px
+    }
+
+    #intro p {
+        font-size: 1rem;
+        width: 300px;
+    }
+}
+
+/* Education |---------------------------------------------------------------------------| */
+
+#education {
+    padding: 30px;
+}
+
+@media (max-width: 700px) {
+    #education {
+        margin-bottom: 20px;
+    }
+}
+
+/* Work Experience |---------------------------------------------------------------------| */
+
+#work-exp {
+    padding: 30px;
+}
+
+@media (max-width: 700px) {
+    #work-exp {
+        margin-bottom: 20px;
+    }
+}
+
+/* References |--------------------------------------------------------------------------| */
+
+#references {
+    padding: 30px;
+}
+
+#references .box {
+    height: 425px;
+}
+
+.reference-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.reference-info img {
+    margin: 20px;
+}
+
+.reference-info h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    text-align: center;
+}
+
+.reference-info p {
+    font-size: 1.2em;
+    margin-top: 5px;
+    text-align: center;
+}
+
+/*
+<div class="box">
+                <!-- <div class="box" style="height:200px;"> -->
+                <h1 class="headings">Professional Reference</h1>
+                <hr>
+                <div class="reference-info">
+                    <img src="Images/Mark-Meyer.jpg" alt="Dr. R. Mark Meyer">
+                    <h3>Dr. R. Mark Meyer</h3>
+                    <span>Associate Professor at Canisius College</span>
+                </div>
+            </div>
+*/
+
+@media (max-width: 700px) {
+    #references {
+        margin-bottom: 20px;
+    }
+
+    #references .box {
+        height: 370px;
+    }
+
+    .reference-info img {
+        height: 158px;
+        width: 238px;
+    }
+}
+
+/* Photo Bar |---------------------------------------------------------------------------| */
+
+#photo-bar {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;  /* Align elements in a column - preparatory for Responsive */
+    padding: 20px;
+}
+
+.gallery {
+    box-sizing: border-box;  /* Accounts for border/padding when specifying height/width */
+    display: flex;
+    flex-wrap: wrap;  /* Wrap elements in the flexbox */
+    justify-content: space-around;  /* Equal space between items, with half-space on ends */
+}
+
+.gallery img {
+    border-radius: 20px;
+    height: 360px;
+    margin: 10px;
+    width: 360px;
+}
+
+@media (max-width: 700px) {
+    .gallery img {
+        height: 300px;
+        width: 300px;
+    }
+}
+
+/* Skills |------------------------------------------------------------------------------| */
+
+#skills {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+@media (max-width: 700px) {
+    #skills {
+        margin-bottom: 20px;
+    }
+}
+
+/* Quote Bar |---------------------------------------------------------------------------| */
+
+#quote-bar {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.quotes {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.quote-box {
+    color: #FFF;
+    font-size: 1.5em;
+    font-style: italic;
+    text-align: center;
+    width: 360px;
+}
+
+.quote-box p:first-child {
+    padding-bottom: 10px;
+}
+
+@media (max-width: 700px) {
+    .quote-box {
+        font-size: 1.3em;
+        margin: 20px 0;
+    }
+}
+
+/* Personal Interests |------------------------------------------------------------------| */
+
+#interests {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.polaroid-gal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.polaroid-gal figure {
+    background-color: #FFF;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 10px 20px;
+    padding: 20px;
+    transition: all .8s;
+    width: 320px;
+}
+
+.polaroid-gal figure:hover {
+    box-shadow: 0 0 40px #000;
+}
+
+.polaroid-gal figure img {
+    width: 100%;
+}
+
+.polaroid-gal figure figcaption {
+    font-size: 1.4em;
+    padding: 0 4px;
+    padding-top: 12px;
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    #interests {
+        margin-bottom: 20px;
+    }
+
+    .polaroid-gal figure figcaption {
+        font-size: 1em;
+    }
+}
+
+/* Contact Me |--------------------------------------------------------------------------| */
+
+#contact {
+    background-color: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;  /* Accounts for border/padding when specifying height/width */
+    color: white;
+    display: flex;
+    flex-direction: column;  /* Align elements in a column - preparatory for Responsive */
+    padding: 30px;
+}
+
+.form {
+    align-items: center;  /* Position items in the center of the box */
+    box-sizing: border-box;  /* Accounts for border/padding when specifying height/width */
+    display: flex;
+    flex-direction: column;  /* Align elements in a column - preparatory for Responsive */
+    margin: 20px 0px;
+}
+
+.input {
+    border: none;
+    font-family: "Roboto Serif", sans-serif;
+    margin: 15px;
+    outline: none;  /* Ensure no outline */
+    padding: 12px;
+    width: 30%;
+}
+
+#msg {
+    border: none;
+    font-family: "Roboto Serif", sans-serif;
+    margin: 15px;
+    outline: none;  /* Ensure no outline */
+    padding: 10px;
+    resize: none;
+    width: 40%;
+}
+
+#submit {
+    background-color: transparent;
+    border: 1px solid #FFF;
+    color: #FFF;
+    margin-top: 15px;
+    outline: none;  /* Ensure no outline */
+    padding: 10px 35px;
+    transition: .6s ease;  /* Ease below transition for .6s */
+}
+
+#submit:hover {
+    background-color: #FFF;
+    box-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF;  /* Creates three white shadows around the SUBMIT Button */
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@media (max-width: 700px) {
+    .input {
+        width: 80%;
+    }
+
+    #msg {
+        width: 80%;
+    }
+}
